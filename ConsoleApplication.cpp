@@ -35,12 +35,16 @@ public:
 	{
 		return this->volume() == aBox.volume();
 	}
+	
+	bool operator> (const double value) const
+	{
+		return this->volume() > value;
+	}
 
 	virtual double show_volume() const final
 	{
 		return m_Length * m_Width * m_Height;
 	}
-
 
 	~CBox()
 	{
@@ -168,6 +172,12 @@ int main()
 	 CBox myBox{ 4.0, 3.0, 2.0 };
 	 CCandyBox myCandyBox;
 	 CCandyBox myMintBox{ "Wafer Thin Mints" };
+
+	 int x{ 5 };
+	 int&& rExpress{ 2 * x + 3 };
+	 cout << rExpress << endl;
+	 int& rx{ x };
+	 cout << rx << endl;
 
 	 std::cout << "myBox occupies " << sizeof myBox
 		 << "bytes" << endl
